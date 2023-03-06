@@ -2,8 +2,6 @@ import Head from 'next/head'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Sidebar from '../components/Sidebar'
-
-
 export default function Layout ({ children, title, description = '' }) {
     return (
         <>

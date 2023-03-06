@@ -12,7 +12,6 @@ const Sidebar = () => {
             return "bg-gradient-to-t from-green-900 via-green-200 to-green-900 rounded-lg p-2 m-2 sombra outline outline-offset-1 outline-stone-500 flex w-10 md:flex-none md:w-auto md:justify-center"
         }
         return "bg-gradient-to-t from-yellow-900 via-yellow-100 to-yellow-900 rounded-lg p-2 m-2 sombra outline outline-offset-1 outline-stone-800  hover:bg-gradient-to-t hover:from-yellow-900 hover:via-yellow-300 hover:to-yellow-900 flex w-10 md:flex-none md:w-auto md:justify-center"
-
     }
     return (
         <>
@@ -90,18 +89,7 @@ const Sidebar = () => {
                             className="md:visible collapse ml-3 font-bold"
                         >Minas</p>
                     </Link>
-                    <Link
-                        href="/listadoJugadoresEnJuego"
-                        className={ pagina('/listadoJugadoresEnJuego') }
-                    >
-                        <Image src="/img/gamers.png" width={ 25 } height={ 25 }
-                            alt='Jugadores'
-                            className="flex-none"
-                        />
-                        <p
-                            className="md:visible collapse ml-3 font-bold"
-                        >Jugadores</p>
-                    </Link>
+                    
                 </div>
             </div>
         </>

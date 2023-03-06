@@ -28,7 +28,7 @@ export default function ContenedorJugadores () {
             router.push("/listadoJugadoresEnJuego")
             return;
         }
-        alert("Lamentablemente sin jugadores la partida está decidida.\n\n¡¡ los malos ganan !!.\n\nAñade jugadores para que esto sea más divertido") 
+        alert("Lamentablemente sin jugadores la partida está decidida.\n\n¡¡ los malos ganan !!.\n\nAñade jugadores para que esto sea más divertido")
     }
     return (
         <>
@@ -38,12 +38,12 @@ export default function ContenedorJugadores () {
             >
                 <div className='flex-row'>
                     <h2 className="text-3xl text-amber-900 font-bold text-center py-3 overflow-x-auto bg-s">Jugadores</h2>
-                    <Jugadores color={ colores[ 1 ] } idJug={ 1 } />
-                    <Jugadores color={ colores[ 2 ] } idJug={ 2 } />
-                    <Jugadores color={ colores[ 3 ] } idJug={ 3 } />
-                    <Jugadores color={ colores[ 4 ] } idJug={ 4 } />
-                    <Jugadores color={ colores[ 5 ] } idJug={ 5 } />
-                    <Jugadores color={ colores[ 6 ] } idJug={ 6 } />
+                    <Jugadores color={ "bg-gradient-to-t from-green-900 via-green-600 to-green-900" } idJug={ 1 } />
+                    <Jugadores color={ "bg-gradient-to-t from-red-900 via-red-500 to-red-900" } idJug={ 2 } />
+                    <Jugadores color={ "bg-gradient-to-t from-yellow-600 via-yellow-200 to-yellow-600" } idJug={ 3 } />
+                    <Jugadores color={ "bg-gradient-to-t from-blue-900 via-blue-600 to-blue-900" } idJug={ 4 } />
+                    <Jugadores color={ "bg-gradient-to-t from-violet-900 via-violet-600 to-violet-900" } idJug={ 5 } />
+                    <Jugadores color={ "bg-gradient-to-t from-stone-900 via-stone-600 to-stone-900" } idJug={ 6 } />
                 </div>
                 <div className='flex justify-center my-8 mx-1'>
                     <button

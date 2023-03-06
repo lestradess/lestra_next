@@ -1,0 +1,109 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+model Personaje {
+  id Int @id 
+  nombre String
+  avatar Int @default(0)
+  vida Int @default(20)
+  armaduraMadera Int @default(1)
+  armaduraMetal Int @default(1)
+  escudoMadera Int @default(1)
+  escudoMetal Int @default(1)
+  espadaMadera Int @default(1)
+  espadaMetal Int @default(1)
+  comida Int @default(5)
+  agua Int @default(5)
+  madera Int @default(0)
+  metal Int @default(0)
+  cuero Int @default(0)
+  carne Int @default(0)
+  piedra Int @default(0)
+  carta String?
+  carta1 String?
+  carta2 String?
+  carta3 String?
+  carta4 String?
+  carta5 String?
+  carta6 String?
+  carta7 String?
+  carta8 String?
+  carta9 String?
+  picoPiedra Boolean @default(false)
+  picoMetal Boolean @default(false)
+  arcoMadera Boolean @default(false)
+  arcoMetal Boolean @default(false)
+  monedas Int @default(0)
+  usuario Usuario @relation(fields: [usuarioId], references: [id])
+  usuarioId Int
+  mapa Mapa @relation(fields: [mapaId], references: [id])
+  mapaId Int
+  runasPersonaje RunasPersonajes @relation(fields: [runaId], references: [id])
+  runaId Int
+}
+model RunasPersonajes{
+  id Int @id @default(autoincrement())
+  Personaje Personaje[]
+  mapa Mapa @relation(fields: [mapaId], references: [id])
+  mapaId Int
+}
+model Usuario{
+  id Int @id @default(autoincrement())
+  nombre String
+  email String
+  personaje Int 
+  personajes Personaje[]
+}
+model Enemigos {
+  id Int @id @default(autoincrement())
+  estado String
+  posicionAnterior String
+  nivel Int?
+  mapa Mapa @relation(fields: [mapaId], references: [id])
+  mapaId Int
+}
+model Animales {
+  id Int @id @default(autoincrement())
+  posicionAnterior String?
+  mapa Mapa @relation(fields: [mapaId], references: [id])
+  mapaId Int
+}
+model Minas {
+  id Int @id @default(autoincrement())
+  posicionAnterior String?
+  mapa Mapa @relation(fields: [mapaId], references: [id])
+  mapaId Int
+}
+model Arboles {
+  id Int @id @default(autoincrement())
+  posicionAnterior String?
+  //mapa Mapa @relation( fields: [mapaId], references: [id])
+  mapa Mapa @relation(fields: [mapaId], references: [id])
+  mapaId Int
+}
+model RunasEnemigos{
+  id Int @id @default(autoincrement())
+  mapa Mapa @relation(fields: [mapaId], references: [id])
+  mapaId Int
+}
+
+model Mapa{
+  id Int @id @default(autoincrement())
+  casilla String @unique
+  arboles Arboles []
+  minas Minas[]
+  animales Animales[]
+  enemigos Enemigos[]
+  personaje Personaje[]
+  runasEnemigos RunasEnemigos[]
+  runasPersonajes RunasPersonajes[]
+}
